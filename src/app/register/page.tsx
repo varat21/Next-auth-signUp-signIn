@@ -1,126 +1,3 @@
-// "use client";
-// import { Label } from "@/components/ui/label";
-// import { Input } from "@/components/ui/input";
-// import { Button } from "@/components/ui/button";
-// import Link from "next/link";
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
-
-// const Register = () => {
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [error, setError] = useState<string | null>(null);
-//   const [loading, setLoading] = useState(false);
-//   const router = useRouter();
-
-//   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-//     setLoading(true);
-//     setError(null);
-
-//     try {
-//       const res = await fetch("/api/register", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           name,
-//           email,
-//           password,
-//         }),
-//       });
-
-//       if (res.ok) {
-//         // Reset form and state
-//         const form = e.target as HTMLFormElement;
-//         form.reset();
-//         setName("");
-//         setEmail("");
-//         setPassword("");
-
-//         // Redirect to login page after successful registration
-//         router.push("/"); // Adjust to your actual login route
-//       } else {
-//         const data = await res.json();
-//         setError(data.message || "Registration failed. Please try again.");
-//       }
-//     } catch (error) {
-//       const errorMessage =
-//         error instanceof Error ? error.message : "An unexpected error occurred";
-//       setError(errorMessage);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-//       <div className="w-[300px] p-9 m-10 shadow-2xs bg-gray-50 border-1 flex flex-col gap-4">
-//         <h2 className="text-3xl font-semibold flex justify-center items-center">
-//           Register
-//         </h2>
-//         {error && <p className="text-red-500 text-sm">{error}</p>}
-//         <form onSubmit={handleSubmit}>
-//           <Label htmlFor="name" className="text-xl">
-//             Full Name
-//           </Label>
-//           <Input
-//             required
-//             id="name"
-//             type="text"
-//             placeholder="Full Name"
-//             value={name}
-//             onChange={(e) => setName(e.target.value)}
-//           />
-//           <Label htmlFor="email" className="text-xl">
-//             Email
-//           </Label>
-//           <Input
-//             required
-//             id="email"
-//             type="email"
-//             placeholder="Email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <Label htmlFor="password" className="text-xl">
-//             Password
-//           </Label>
-//           <Input
-//             required
-//             id="password"
-//             type="password"
-//             placeholder="Password"
-//             className="mb-2"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//           <Button
-//             variant="outline"
-//             className="text-xl w-full"
-//             type="submit"
-//             disabled={loading}
-//           >
-//             {loading ? "Registering..." : "Register"}
-//           </Button>
-//         </form>
-//         <Label className="text-sm">
-//           Already have an account?{" "}
-//           <Link href="/" className="underline">
-//             Sign In
-//           </Link>
-//         </Label>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Register;
-
-
-
 "use client";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -196,7 +73,9 @@ const Register = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
           <div>
-            <h2 className="text-white text-4xl font-bold mb-2">Find Your Dream Home</h2>
+            <h2 className="text-white text-4xl font-bold mb-2">
+              Find Your Dream Home
+            </h2>
             <p className="text-white/90 text-lg">
               Join thousands of happy renters in our community
             </p>
@@ -221,7 +100,9 @@ const Register = () => {
           </div>
         </div>
 
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Create Account</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">
+          Create Account
+        </h2>
         <p className="text-gray-600 text-center mb-8">
           Join our platform to find the perfect rental property
         </p>

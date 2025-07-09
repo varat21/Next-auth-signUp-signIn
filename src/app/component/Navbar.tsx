@@ -2,21 +2,23 @@
 import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
+import { IoIosLogOut } from "react-icons/io";
+import { useRouter } from "next/navigation"; // Changed from 'next/router'
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
+  const router = useRouter(); // Properly initialize the router
+
+  const handleLogout = () => {
+    router.push("/");
+  };
+
   return (
     <div
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
-          {/* <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Web Development</HoveredLink>
-            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
-          </div> */}
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Our Courses">
           <div className="flex flex-col space-y-4 text-sm">
@@ -29,14 +31,17 @@ function Navbar({ className }: { className?: string }) {
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Contact Us">
           <div className="flex flex-col space-y-4 text-sm">
-            {/* <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink> */}
           </div>
         </MenuItem>
+        <div
+          className="flex items-center gap-2 cursor-pointer text-white font-medium py-2 px-4 rounded transition-colors duration-200 ml-32"
+          onClick={handleLogout}
+        >
+          <IoIosLogOut className="text-lg" />
+        </div>
       </Menu>
     </div>
   );
 }
+
 export default Navbar;

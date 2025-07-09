@@ -74,7 +74,7 @@ const Register = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
           <div>
             <h2 className="text-white text-4xl font-bold mb-2">
-              Find Your Dream Home
+              Find Your Dream Music
             </h2>
             <p className="text-white/90 text-lg">
               Join thousands of happy renters in our community
@@ -104,7 +104,7 @@ const Register = () => {
           Create Account
         </h2>
         <p className="text-gray-600 text-center mb-8">
-          Join our platform to find the perfect rental property
+          Join our platform to find the perfect music
         </p>
 
         {error && (
